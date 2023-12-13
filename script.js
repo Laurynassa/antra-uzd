@@ -1,6 +1,6 @@
 "use strict";
 //duomenu persipumpavimas
-import kazkas from "./data.js";
+import kazkas from "./data.json" assert { type: "json" };
 // // console.log(kazkas);
 // //1.1 patikrinimas ar yra šaliu duomenis
 // const infoIsLS = localStorage.getItem("ŠaliųD");
@@ -69,32 +69,32 @@ import kazkas from "./data.js";
 
 //mokyklos varijantas
 
-// const patikra = JSON.parse(localStorage.getItem("Countries"));
-// console.log(patikra);
-// // //
-// const sal = patikra === null ? [] : JSON.parse(patikra);
-// console.log(sal);
-// // //
-// kazkas.forEach((el, index) => {
-//   if (!el.hasOwnProperty("Countries")) {
-//     const country = {
-//       id: index + 1,
-//       name: el.name.common,
-//       capital: "Data not found 404!",
-//     };
-//     console.log(country);
-//     sal.push(country);
-//   } else {
-//     const country = {
-//       id: index + 1,
-//       name: el.name.common,
-//       capital: el.capital,
-//     };
-//     console.log(country);
-//     sal.push(country);
-//   }
-//   // console.log(country2);
-//   // sal.push(country1);
-// });
-// console.log(sal);
-// localStorage.setItem("countries", JSON.stringify(sal));
+const patikra = JSON.parse(localStorage.getItem("Countries"));
+console.log(patikra);
+// //
+const sal = patikra === null ? [] : JSON.parse(patikra);
+console.log(sal);
+// //
+kazkas.forEach((el, index) => {
+  if (!el.hasOwnProperty("Countries")) {
+    const country = {
+      id: index + 1,
+      name: el.name.common,
+      capital: "Data not found 404!",
+    };
+    console.log(country);
+    sal.push(country);
+  } else {
+    const country = {
+      id: index + 1,
+      name: el.name.common,
+      capital: el.capital,
+    };
+    console.log(country);
+    sal.push(country);
+  }
+  // console.log(country2);
+  // sal.push(country1);
+});
+console.log(sal);
+localStorage.setItem("countries", JSON.stringify(sal));
